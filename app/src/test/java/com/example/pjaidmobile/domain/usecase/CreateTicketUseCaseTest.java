@@ -1,5 +1,9 @@
 package com.example.pjaidmobile.domain.usecase;
 
+import static org.junit.Assert.assertThrows;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import com.example.pjaidmobile.data.model.TicketRequest;
 import com.example.pjaidmobile.data.model.TicketResponse;
 import com.example.pjaidmobile.domain.repository.TicketRepository;
@@ -12,8 +16,6 @@ import org.mockito.MockitoAnnotations;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-
-import static org.mockito.Mockito.*;
 
 public class CreateTicketUseCaseTest {
 
@@ -54,4 +56,25 @@ public class CreateTicketUseCaseTest {
         verify(ticketRepository).createTicket(request);
         verify(mockCall).enqueue(callback);
     }
+
+    @Test(expected = NullPointerException.class)
+    public void testExecute_shouldThrowExceptionWhenRepositoryReturnsNull() {
+        // Given
+        TicketRequest request = new TicketRequest("Tytuł", "Opis", "NOWE", 1, 2, 53.0, 18.0);
+
+        when(ticketRepository.createTicket(request)).thenReturn(null);
+
+        // When
+        useCase.execute(request, callback);
+    }
+
+    @Test
+    public void testExecute_shouldThrowExceptionWhenCallbackIsNull() {
+        TicketRequest request = new TicketRequest("Tytuł", "Opis", "NOWE", 1, 2, 53.0, 18.0);
+        when(ticketRepository.createTicket(request)).thenReturn(mockCall);
+
+        assertThrows(NullPointerException.class, () -> useCase.execute(request, null));
+    }
+
+
 }
