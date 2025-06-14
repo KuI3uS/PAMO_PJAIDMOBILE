@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -46,27 +47,26 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit2.converter.gson)
 // RxJava3
-    implementation(libs.rxandroid) // Użyj najnowszej wersji
+    implementation(libs.rxandroid)
     implementation(libs.rxjava)
 // Retrofit RxJava Adapter
-    implementation(libs.retrofit2.adapter.rxjava3) // Użyj wersji pasującej do Retrofit
+    implementation (libs.retrofit2.adapter.rxjava3)
 // Lifecycle (ViewModel, LiveData)
-    implementation(libs.lifecycle.viewmodel) // Użyj najnowszej wersji
-    implementation(libs.androidx.lifecycle.livedata)
-// Do integracji Java 8 z Lifecycle (opcjonalnie, ale pomocne)
-    implementation(libs.lifecycle.common.java8)
-    // Google Maps
+    implementation (libs.lifecycle.viewmodel)
+    implementation (libs.androidx.lifecycle.livedata)
+    implementation (libs.lifecycle.common.java8)
+// Google Maps
     implementation(libs.play.services.maps)
 
-// Lokalizacja
+// Localization
     implementation(libs.play.services.location)
 
 // Hilt
     implementation(libs.hilt.android)
     implementation(libs.androidx.uiautomator)
-    annotationProcessor(libs.dagger.hilt.compiler) // Jeśli nie używasz Kapt
+    annotationProcessor(libs.dagger.hilt.compiler)
     testImplementation(libs.espresso.core)
-    testImplementation(libs.ext.junit) // Użyj najnowszej wersji
+    testImplementation(libs.ext.junit)
     testImplementation(libs.junit)
     testImplementation(libs.mockito.core)
     testImplementation(libs.mockito.inline)
