@@ -8,9 +8,9 @@ import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -26,73 +26,125 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class ScanQRActivity extends AppCompatActivity {
 
     private static final String TAG = "ScanQRActivity";
-    private static final int CAMERA_PERMISSION_REQUEST = 100;
 
     private ScanQRViewModel viewModel;
     private DecoratedBarcodeView barcodeScannerView;
+    private final ActivityResultLauncher<String> cameraPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted != null && isGranted) {
+                    startScanning();
+                } else {
+                    Toast.makeText(this, "Brak uprawnień do kamery", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "ScanQRActivity started");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_qr);
 
+        initViewModel();
+        initViews();
+        checkCameraPermissionOrStartScanning();
+    }
+
+    private void initViewModel() {
         viewModel = new ViewModelProvider(this).get(ScanQRViewModel.class);
+        viewModel.uiState.observe(this, this::handleUiState);
+    }
+
+    private void initViews() {
         barcodeScannerView = findViewById(R.id.barcodeScannerView);
 
         ImageButton buttonBack = findViewById(R.id.buttonBack);
         if (buttonBack != null) {
+            Log.d(TAG, "Back button clicked");
             buttonBack.setOnClickListener(v -> finish());
-        }
-
-        viewModel.uiState.observe(this, this::handleUiState);
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_REQUEST);
-        } else {
-            startScanning();
         }
     }
 
+    private void checkCameraPermissionOrStartScanning() {
+        boolean granted = hasCameraPermission();
+        Log.d(TAG, "Camera permission: " + (granted ? "granted" : "denied"));
+        if (granted) {
+            startScanning();
+        } else {
+            cameraPermissionLauncher.launch(Manifest.permission.CAMERA);
+        }
+    }
+
+
+    private boolean hasCameraPermission() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
+
     private void startScanning() {
         barcodeScannerView.decodeContinuous(result -> {
-            if (result != null && result.getText() != null) {
-                String scannedId = result.getText();
-                Log.d(TAG, "Zeskanowano kod: " + scannedId);
-                barcodeScannerView.pause();
-                viewModel.fetchDevice(scannedId);
+            if (result == null || result.getText() == null) {
+                Log.w(TAG, "Scan returned empty result");
+                return;
             }
+
+            String scannedId = result.getText();
+            Log.d(TAG, "Scanned QR code: " + scannedId);
+
+            barcodeScannerView.pause();
+            viewModel.fetchDevice(scannedId);
         });
+
         barcodeScannerView.resume();
     }
 
     private void handleUiState(ScanUiState state) {
         if (state instanceof ScanUiState.DeviceFound) {
-            Device device = ((ScanUiState.DeviceFound) state).device;
-            Log.d(TAG, "Znaleziono urządzenie: " + device.getName());
-
-            Intent intent = DeviceIntentHelper.createIntentWithDevice(this, CreateTicketActivity.class, device);
-            startActivity(intent);
-            finish();
-
+            handleDeviceFound(((ScanUiState.DeviceFound) state).device);
         } else if (state instanceof ScanUiState.DeviceNotFound) {
-            Log.w(TAG, "Nie znaleziono urządzenia w API");
-            Toast.makeText(this, R.string.device_not_found, Toast.LENGTH_SHORT).show();
-            finish();
-
+            handleDeviceNotFound();
         } else if (state instanceof ScanUiState.Error) {
-            String message = ((ScanUiState.Error) state).message;
-            Log.e(TAG, "Błąd API: " + message);
-            String errorMessage = message != null ? message : getString(R.string.unknown_api_error);
-            Toast.makeText(this, getString(R.string.api_error_prefix) + errorMessage, Toast.LENGTH_LONG).show();
-            finish();
-
+            handleScanError(((ScanUiState.Error) state).message);
         } else if (state instanceof ScanUiState.ScanCancelled) {
-            Log.d(TAG, "Obsługa stanu anulowania skanowania");
-            Toast.makeText(this, R.string.scan_cancelled, Toast.LENGTH_SHORT).show();
-            finish();
+            handleScanCancelled();
         }
     }
+
+    private void handleDeviceFound(Device device) {
+        Log.d(TAG, "Device found: " + device.getName());
+        Intent intent = DeviceIntentHelper.createIntentWithDevice(this, CreateTicketActivity.class, device);
+        startActivity(intent);
+        finish();
+    }
+
+    private void handleDeviceNotFound() {
+        Log.w(TAG, "Device not found in API");
+        showToast(R.string.device_not_found);
+        finish();
+    }
+
+    private void handleScanError(String message) {
+        String errorMessage = message != null ? message : getString(R.string.unknown_api_error);
+        Log.e(TAG, "API error: " + errorMessage);
+        showToast(getString(R.string.api_error_prefix) + errorMessage);
+        finish();
+    }
+
+    private void handleScanCancelled() {
+        Log.d(TAG, "Scan cancelled");
+        showToast(R.string.scan_cancelled);
+        finish();
+    }
+
+    private void showToast(int resId) {
+        Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
+
 
     @Override
     protected void onResume() {
@@ -107,20 +159,5 @@ public class ScanQRActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         barcodeScannerView.pause();
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == CAMERA_PERMISSION_REQUEST) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                startScanning();
-            } else {
-                Toast.makeText(this, "Brak uprawnień do kamery", Toast.LENGTH_LONG).show();
-                finish();
-            }
-        }
     }
 }

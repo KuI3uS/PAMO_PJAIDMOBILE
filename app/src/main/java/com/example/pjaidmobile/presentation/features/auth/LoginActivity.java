@@ -146,7 +146,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        loginUseCase.execute(username, password).enqueue(new Callback<AuthResponse>() {
+        loginUseCase.execute(username, password).enqueue(new Callback<>() {
             @Override
             public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -158,6 +158,8 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putBoolean("isLoggedIn", true);
                     editor.putString("accessToken", accessToken);
                     editor.putString("refreshToken", refreshToken);
+
+                    editor.putString("loggedInUsername", username);
 
                     if (rememberMe) {
                         editor.putString("username", username);

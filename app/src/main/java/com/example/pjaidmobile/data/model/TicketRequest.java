@@ -4,18 +4,18 @@ public class TicketRequest {
     private String title;
     private String description;
     private String status;
-    private int deviceId;
-    private int userId;
+    private Long deviceId;
+    private String userName;
 
     private Double latitude;
     private Double longitude;
 
-    public TicketRequest(String title, String description, String status, int deviceId, int userId, Double latitude, Double longitude) {
+    public TicketRequest(String title, String description, String status, Long deviceId, String userId, Double latitude, Double longitude) {
         this.title = title;
         this.description = description;
         this.status = status;
         this.deviceId = deviceId;
-        this.userId = userId;
+        this.userName = userId;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -23,8 +23,8 @@ public class TicketRequest {
     public String getTitle() { return title; }
     public String getDescription() { return description; }
     public String getStatus() { return status; }
-    public int getDeviceId() { return deviceId; }
-    public int getUserId() { return userId; }
+    public Long getDeviceId() { return deviceId; }
+    public String getUserName() { return userName; }
 
     public Double getLatitude() {
         return latitude;

@@ -13,7 +13,9 @@ import com.example.pjaidmobile.util.LocationProvider;
 import javax.inject.Inject;
 
 import dagger.hilt.android.lifecycle.HiltViewModel;
+import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 @HiltViewModel
 public class CreateTicketViewModel extends ViewModel {
@@ -22,6 +24,8 @@ public class CreateTicketViewModel extends ViewModel {
     private final LocationProvider locationProvider;
 
     private final MutableLiveData<Location> locationLiveData = new MutableLiveData<>();
+    private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
+    private final MutableLiveData<Boolean> submitSuccess = new MutableLiveData<>();
 
     @Inject
     public CreateTicketViewModel(CreateTicketUseCase createTicketUseCase, LocationProvider locationProvider) {
@@ -38,7 +42,7 @@ public class CreateTicketViewModel extends ViewModel {
 
             @Override
             public void onLocationError(String message) {
-                // Można dodać osobny LiveData do błędów lokalizacji
+                errorMessage.postValue("Błąd lokalizacji: " + message);
             }
         });
     }
@@ -47,7 +51,51 @@ public class CreateTicketViewModel extends ViewModel {
         return locationLiveData;
     }
 
-    public void submitTicket(TicketRequest request, Callback<TicketResponse> callback) {
-        createTicketUseCase.execute(request, callback);
+    public LiveData<String> getErrorMessage() {
+        return errorMessage;
+    }
+
+    public LiveData<Boolean> getSubmitSuccess() {
+        return submitSuccess;
+    }
+
+    public void onSubmitClicked(String title, String description, boolean isDowntime, Double lat, Double lon, String username, String serialNumber) {
+        if (title.isEmpty()) {
+            errorMessage.setValue("Tytuł nie może być pusty");
+            return;
+        }
+
+        if (description.isEmpty()) {
+            errorMessage.setValue("Opis nie może być pusty");
+            return;
+        }
+
+        String status = isDowntime ? "PRZESTOJ" : "NOWE";
+
+        TicketRequest request = new TicketRequest(
+                title,
+                description,
+                status,
+                1L,
+                username,
+                lat != null ? lat : 53.1234804,
+                lon != null ? lon : 18.004378
+        );
+
+        createTicketUseCase.execute(request, new Callback<>() {
+            @Override
+            public void onResponse(Call<TicketResponse> call, Response<TicketResponse> response) {
+                if (response.isSuccessful()) {
+                    submitSuccess.postValue(true);
+                } else {
+                    errorMessage.postValue("Błąd zgłoszenia: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TicketResponse> call, Throwable t) {
+                errorMessage.postValue("Błąd sieci: " + t.getMessage());
+            }
+        });
     }
 }

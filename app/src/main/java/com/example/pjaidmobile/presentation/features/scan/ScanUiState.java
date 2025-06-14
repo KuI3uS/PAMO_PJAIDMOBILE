@@ -24,7 +24,7 @@ public interface ScanUiState {
     }
 
     class DeviceFound implements ScanUiState {
-        public final Device device; // Lub DomainDevice
+        public final Device device;
 
         public DeviceFound(Device device) {
             this.device = device;

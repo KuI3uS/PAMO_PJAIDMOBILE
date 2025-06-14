@@ -45,7 +45,7 @@ public class CreateTicketUseCaseTest {
     @Test
     public void testExecute_shouldCallRepositoryAndEnqueueCallback() {
         // Given
-        TicketRequest request = new TicketRequest("Tytuł", "Opis", "NOWE", 1, 2, 53.0, 18.0);
+        TicketRequest request = new TicketRequest("Tytuł", "Opis", "NOWE", 1L, "user", 53.0, 18.0);
 
         when(ticketRepository.createTicket(request)).thenReturn(mockCall);
 
@@ -60,7 +60,7 @@ public class CreateTicketUseCaseTest {
     @Test(expected = NullPointerException.class)
     public void testExecute_shouldThrowExceptionWhenRepositoryReturnsNull() {
         // Given
-        TicketRequest request = new TicketRequest("Tytuł", "Opis", "NOWE", 1, 2, 53.0, 18.0);
+        TicketRequest request = new TicketRequest("Tytuł", "Opis", "NOWE", 1L, "user", 53.0, 18.0);
 
         when(ticketRepository.createTicket(request)).thenReturn(null);
 
@@ -70,7 +70,7 @@ public class CreateTicketUseCaseTest {
 
     @Test
     public void testExecute_shouldThrowExceptionWhenCallbackIsNull() {
-        TicketRequest request = new TicketRequest("Tytuł", "Opis", "NOWE", 1, 2, 53.0, 18.0);
+        TicketRequest request = new TicketRequest("Tytuł", "Opis", "NOWE", 1L, "user", 53.0, 18.0);
         when(ticketRepository.createTicket(request)).thenReturn(mockCall);
 
         assertThrows(NullPointerException.class, () -> useCase.execute(request, null));
