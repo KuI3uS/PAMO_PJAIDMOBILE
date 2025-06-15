@@ -2,6 +2,10 @@ package com.example.pjaidmobile.presentation.features.scan;
 
 import com.example.pjaidmobile.data.model.Device;
 
+/**
+ * Interface representing the various UI states during QR scanning.
+ * Implemented as a sealed-like class hierarchy.
+ */
 public interface ScanUiState {
     class Idle implements ScanUiState {
         private Idle() {
@@ -45,8 +49,6 @@ public interface ScanUiState {
     }
 
     ScanUiState IDLE = new Idle();
-    ScanUiState SCANNING = new Scanning();
     ScanUiState FETCHING_DEVICE = new FetchingDevice();
-    ScanUiState SCAN_CANCELLED = new ScanCancelled();
     ScanUiState DEVICE_NOT_FOUND = new DeviceNotFound();
 }

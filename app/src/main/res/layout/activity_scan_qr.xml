@@ -15,6 +15,6 @@
         android:layout_gravity="start|top"
         android:layout_margin="24dp"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/wstecz"
+        android:contentDescription="@string/back"
         android:src="@drawable/ic_arrow_back" />
 </FrameLayout>

@@ -20,6 +20,11 @@ import com.google.android.gms.maps.MapView;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
+/**
+ * Activity responsible for creating and submitting a support ticket (e.g., device failure or downtime).
+ * It allows the user to fill out a form with a title, description, select a type of issue,
+ * and automatically attaches current GPS location and device info (if available).
+ */
 @AndroidEntryPoint
 public class CreateTicketActivity extends AppCompatActivity {
 
@@ -33,6 +38,10 @@ public class CreateTicketActivity extends AppCompatActivity {
 
     private ActivityCreateTicketBinding binding;
 
+    /**
+     * Request launcher for location permission. If granted, enables location layer on map
+     * and fetches current coordinates from the ViewModel.
+     */
     private final ActivityResultLauncher<String> locationPermissionRequest =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
                 if (Boolean.TRUE.equals(isGranted)) {
@@ -43,6 +52,11 @@ public class CreateTicketActivity extends AppCompatActivity {
                 }
             });
 
+    /**
+     * Called when the activity is first created. Initializes layout, ViewModel, map, form logic, and observers.
+     *
+     * @param savedInstanceState Bundle with saved state data (used for restoring MapView)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +77,10 @@ public class CreateTicketActivity extends AppCompatActivity {
         populateFormFromDevice(device);
     }
 
+    /**
+     * Configures the submit button logic and validates form input.
+     * Sends the filled ticket data to the ViewModel.
+     */
     private void setupForm() {
         binding.buttonSubmitTicket.setOnClickListener(v -> {
             String titleText = binding.editTextTitle.getText().toString().trim();
@@ -99,6 +117,11 @@ public class CreateTicketActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Fills in the form with preloaded device information passed via Intent (e.g., from QR code scan).
+     *
+     * @param device Device object received from previous activity
+     */
     private void populateFormFromDevice(Device device) {
         if (device != null) {
             if (device.getName() != null) {
@@ -120,6 +143,10 @@ public class CreateTicketActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Subscribes to LiveData from ViewModel to update the map location,
+     * show success messages or error feedback.
+     */
     private void observeViewModel() {
         viewModel.getLocationLiveData().observe(this, location -> {
             latitude = location.getLatitude();
@@ -140,6 +167,11 @@ public class CreateTicketActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Initializes the Google Map with saved instance state and triggers permission check.
+     *
+     * @param savedInstanceState Bundle to restore the map state from
+     */
     private void setupMap(Bundle savedInstanceState) {
         Bundle mapBundle = null;
         if (savedInstanceState != null) {
@@ -148,6 +180,10 @@ public class CreateTicketActivity extends AppCompatActivity {
         mapHandler.initializeMap(mapBundle, this::checkLocationPermission);
     }
 
+    /**
+     * Checks if the app has permission to access location. If not, requests it.
+     * On success, enables the user's location on the map and requests coordinates.
+     */
     private void checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -182,6 +218,11 @@ public class CreateTicketActivity extends AppCompatActivity {
         mapHandler.onLowMemory();
     }
 
+    /**
+     * Called before the activity is destroyed to save the state of the MapView.
+     *
+     * @param outState Bundle used to store the map’s state
+     */
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);

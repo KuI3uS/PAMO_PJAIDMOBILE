@@ -22,6 +22,10 @@ import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
+/**
+ * Activity responsible for scanning QR codes using the camera.
+ * It handles permission checks, initializes the scanner, and navigates to CreateTicketActivity on success.
+ */
 @AndroidEntryPoint
 public class ScanQRActivity extends AppCompatActivity {
 

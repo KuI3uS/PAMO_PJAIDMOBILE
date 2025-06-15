@@ -55,7 +55,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/rodzaj_zg_oszenia"
+                    android:text="@string/ticket_type"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:layout_marginBottom="8dp"/>
@@ -73,7 +73,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/awaria"
+                        android:text="@string/failure"
                         app:backgroundTint="@color/toggle_button_selector_awaria"
                         android:textColor="@color/toggle_button_text_selector"
                         app:strokeColor="@android:color/transparent"
@@ -84,7 +84,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/przest_j"
+                        android:text="@string/downtime"
                         style="@style/Widget.Material3.Button"
                         app:checkedIconTint="@color/white"
                         app:backgroundTint="@color/toggle_button_selector_przestoj"
@@ -94,16 +94,22 @@
                     android:id="@+id/editTextTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/tytu_zg_oszenia"
-                    android:layout_marginBottom="8dp" />
+                    android:hint="@string/report_title"
+                    android:layout_marginBottom="8dp"
+                    android:inputType="text"
+                    android:importantForAutofill="no"
+                    />
 
                 <EditText
                     android:id="@+id/editTextDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="top"
-                    android:hint="@string/opis_zg_oszenia"
-                    android:minLines="5" />
+                    android:hint="@string/report_description"
+                    android:minLines="5"
+                    android:inputType="text"
+                    android:importantForAutofill="no"
+                    />
 
                 <com.google.android.gms.maps.MapView
                     android:id="@+id/mapView"
@@ -115,7 +121,7 @@
                     android:id="@+id/buttonSubmitTicket"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/wy_lij_zg_oszenie" />
+                    android:text="@string/report_send" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </ScrollView>

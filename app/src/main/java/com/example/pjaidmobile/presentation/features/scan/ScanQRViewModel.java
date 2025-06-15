@@ -14,6 +14,10 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.HttpException;
 
+/**
+ * ViewModel for handling QR scan logic and fetching a device by scanned ID.
+ * Uses RxJava and exposes LiveData with UI states.
+ */
 @HiltViewModel
 public class ScanQRViewModel extends ViewModel {
 
@@ -29,6 +33,11 @@ public class ScanQRViewModel extends ViewModel {
         this.getDeviceByIdUseCase = getDeviceByIdUseCase;
     }
 
+    /**
+     * Fetches a device by its scanned ID using the GetDeviceByIdUseCase.
+     *
+     * @param scannedId the ID extracted from the QR code
+     */
     public void fetchDevice(String scannedId) {
         uiStateMutable.setValue(ScanUiState.FETCHING_DEVICE);
         disposables.add(
@@ -42,6 +51,9 @@ public class ScanQRViewModel extends ViewModel {
         );
     }
 
+    /**
+     * Handles any errors that occur during the device fetch operation.
+     */
     private void handleError(Throwable throwable) {
         if (throwable instanceof HttpException && ((HttpException) throwable).code() == 404) {
             uiStateMutable.setValue(ScanUiState.DEVICE_NOT_FOUND);

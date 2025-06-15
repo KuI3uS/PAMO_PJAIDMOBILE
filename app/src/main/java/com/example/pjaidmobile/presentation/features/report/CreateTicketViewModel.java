@@ -17,6 +17,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * ViewModel responsible for handling the logic of creating a ticket.
+ * It communicates with the domain layer, manages location fetching, and exposes LiveData
+ * to observe submission results and possible errors.
+ */
 @HiltViewModel
 public class CreateTicketViewModel extends ViewModel {
 
@@ -33,6 +38,10 @@ public class CreateTicketViewModel extends ViewModel {
         this.locationProvider = locationProvider;
     }
 
+    /**
+     * Triggers fetching of the current device location.
+     * Updates LiveData with result or error message.
+     */
     public void getCurrentLocation() {
         locationProvider.getCurrentLocation(new LocationProvider.LocationCallback() {
             @Override
@@ -59,6 +68,18 @@ public class CreateTicketViewModel extends ViewModel {
         return submitSuccess;
     }
 
+
+    /**
+     * Handles submission of a ticket form. Validates input and sends request via use case.
+     *
+     * @param title         Ticket title
+     * @param description   Ticket description
+     * @param isDowntime    True if issue is a downtime, false otherwise
+     * @param lat           Optional latitude
+     * @param lon           Optional longitude
+     * @param username      Name of the user submitting the ticket
+     * @param serialNumber  Device serial number (if available)
+     */
     public void onSubmitClicked(String title, String description, boolean isDowntime, Double lat, Double lon, String username, String serialNumber) {
         if (title.isEmpty()) {
             errorMessage.setValue("Tytuł nie może być pusty");
