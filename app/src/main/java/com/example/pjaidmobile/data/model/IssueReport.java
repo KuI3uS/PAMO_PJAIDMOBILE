@@ -9,7 +9,6 @@ public class IssueReport {
         this.description = description;
     }
 
-    // Gettery i settery
     public String getDeviceId() { return deviceId; }
     public void setDeviceId(String deviceId) { this.deviceId = deviceId; }
 

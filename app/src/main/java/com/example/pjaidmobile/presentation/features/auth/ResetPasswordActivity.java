@@ -19,9 +19,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         resetPasswordButton = findViewById(R.id.resetPasswordButton);
 
-        // animacja sprężynowa
         ButtonAnimationUtil.applySpringAnimation(resetPasswordButton);
-
         resetPasswordButton.setOnClickListener(v -> {
         });
     }

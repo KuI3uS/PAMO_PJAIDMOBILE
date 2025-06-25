@@ -24,7 +24,6 @@ public class LocationProviderImpl implements LocationProvider {
 
     @Override
     public void getCurrentLocation(LocationCallback callback) {
-        // Sprawdzenie uprawnień
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             callback.onLocationError("Brak uprawnień do lokalizacji");

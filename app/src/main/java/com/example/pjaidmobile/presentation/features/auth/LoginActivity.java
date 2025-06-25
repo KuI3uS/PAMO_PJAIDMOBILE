@@ -59,12 +59,9 @@ public class LoginActivity extends AppCompatActivity {
         ImageView logoImageView = findViewById(R.id.logo_image);
         logoImageView.setImageResource(R.drawable.logo);
 
-        // animacja
         Animation logoAnimation = AnimationUtils.loadAnimation(this, R.anim.logo_appear);
         logoImageView.startAnimation(logoAnimation);
 
-
-        // sprawdzenie logowania
         SharedPreferences prefs = getSharedPreferences("PJAIDPrefs", MODE_PRIVATE);
         boolean isLoggedIn = prefs.getBoolean("isLoggedIn", false);
 
@@ -74,7 +71,6 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        // inicjalizacja elementów
         usernameEditText = findViewById(R.id.username_edit_text);
         passwordEditText = findViewById(R.id.password_edit_text);
         rememberMeCheckBox = findViewById(R.id.remember_me_checkbox);
@@ -84,19 +80,16 @@ public class LoginActivity extends AppCompatActivity {
         signupText = findViewById(R.id.signup_text);
         passwordVisibilityIcon = findViewById(R.id.password_visibility_icon);
 
-        // animacje kliknięcia
         ButtonAnimationUtil.applySpringAnimation(signInButton);
         ButtonAnimationUtil.applySpringAnimation(signupText);
         ButtonAnimationUtil.applySpringAnimation(forgotPasswordText);
 
-        // kolorowy napis "Sign Up"
         String fullText = "Don't have an account? Sign Up";
         SpannableString spannableString = new SpannableString(fullText);
         ForegroundColorSpan blueColor = new ForegroundColorSpan(Color.parseColor("#00BCD4"));
         spannableString.setSpan(blueColor, 23, fullText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         signupText.setText(spannableString);
 
-        // obsługa kliknięć
         signupText.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
@@ -111,7 +104,6 @@ public class LoginActivity extends AppCompatActivity {
 
         passwordVisibilityIcon.setOnClickListener(v -> togglePasswordVisibility());
 
-        // obsługa zapamiętania użytkownika
         String savedUsername = prefs.getString("username", "");
         if (!savedUsername.isEmpty()) {
             usernameEditText.setText(savedUsername);

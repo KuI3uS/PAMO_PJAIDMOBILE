@@ -14,7 +14,6 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
-        // domyślnie uruchomienie LoginFragment
         loadFragment(new com.example.pjaidmobile.presentation.features.auth.LoginFragment());
     }
 

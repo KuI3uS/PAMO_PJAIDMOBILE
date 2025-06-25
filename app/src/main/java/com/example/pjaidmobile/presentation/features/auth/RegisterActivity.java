@@ -49,7 +49,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Rejestracja udana!", Toast.LENGTH_SHORT).show();
 
-        // po rejestracji przekierowuje użytkownika na ekran główny
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }

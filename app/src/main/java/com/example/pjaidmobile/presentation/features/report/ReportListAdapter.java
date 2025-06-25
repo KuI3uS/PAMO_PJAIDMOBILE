@@ -50,7 +50,6 @@ public class ReportListAdapter extends ListAdapter<ReportItem, ReportListAdapter
         holder.status.setText("Status: " + item.getStatus());
 
 
-        // kolor statusu
         String status = item.getStatus().toLowerCase().replace("_", " ").trim();
 
         String displayedStatus = status.length() > 0
@@ -59,12 +58,10 @@ public class ReportListAdapter extends ListAdapter<ReportItem, ReportListAdapter
 
         SpannableStringBuilder builder = new SpannableStringBuilder();
 
-        // "Status: " pogrubione, czarne
         SpannableString label = new SpannableString("Status: ");
         label.setSpan(new StyleSpan(Typeface.BOLD), 0, label.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         label.setSpan(new ForegroundColorSpan(Color.LTGRAY), 0, label.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        // status kolorowy
         SpannableString value = new SpannableString(displayedStatus);
         int color;
 
@@ -80,29 +77,18 @@ public class ReportListAdapter extends ListAdapter<ReportItem, ReportListAdapter
         } else {
             color = Color.DKGRAY;
             holder.container.setBackgroundResource(R.drawable.rounded_background); // np. domyślne szare
-
-
-            //holder.container.setBackgroundColor(Color.WHITE);
         }
 
         value.setSpan(new ForegroundColorSpan(color), 0, value.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        // złożenie tekstu
         builder.append(label).append(value);
         holder.status.setText(builder);
-        //holder.container.setBackgroundColor(Color.WHITE);
+
 
 
 
         holder.itemView.setOnClickListener(v -> {
             Context context = v.getContext();
-//            SharedPreferences prefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//            String role = prefs.getString("role", "");
-//
-//            if (!"TECHNICIAN".equalsIgnoreCase(role)) {
-//                Toast.makeText(context, "Dostęp tylko dla techników", Toast.LENGTH_SHORT).show();
-//                return;
-//            }
             Intent intent = new Intent(context, TicketDetailActivity.class);
             intent.putExtra("reportId", item.getId());
             context.startActivity(intent);

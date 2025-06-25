@@ -37,11 +37,8 @@ public class TicketResponse {
     @SerializedName("user")
     private User user;
 
-    public TicketResponse() {
-        // Konstruktor domyślny dla GSON
-    }
+    public TicketResponse() {}
 
-    // Gettery
     public Long getId() { return id; }
 
     public String getTitle() { return title; }
@@ -60,22 +57,6 @@ public class TicketResponse {
 
     public User getUser() { return user; }
 
-    // Formatowanie daty
-    public String getFormattedDate() {
-        try {
-            long timestamp = Long.parseLong(createdAt);
-            LocalDateTime dateTime = Instant.ofEpochMilli(timestamp)
-                    .atZone(ZoneId.systemDefault())
-                    .toLocalDateTime();
-
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm", Locale.getDefault());
-            return dateTime.format(formatter);
-        } catch (Exception e) {
-            return createdAt != null ? createdAt : "n/a";
-        }
-    }
-
-    // Klasy zagnieżdżone
     public static class Incident {
         @SerializedName("id")
         private int id;

@@ -5,19 +5,20 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.pjaidmobile.R;
-import com.example.pjaidmobile.util.ButtonAnimationUtil;
 import com.example.pjaidmobile.presentation.features.auth.LoginActivity;
+import com.example.pjaidmobile.presentation.features.report.CreateTicketActivity;
 import com.example.pjaidmobile.presentation.features.report.ReportListActivity;
 import com.example.pjaidmobile.presentation.features.scan.ScanQRActivity;
-import com.example.pjaidmobile.presentation.features.report.CreateTicketActivity;
+import com.example.pjaidmobile.util.ButtonAnimationUtil;
 
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Sprawdzenie logowania
         SharedPreferences prefs = getSharedPreferences("PJAIDPrefs", MODE_PRIVATE);
         boolean isLoggedIn = prefs.getBoolean("isLoggedIn", false);
 
@@ -29,25 +30,21 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        //  przyciski
         Button scanQR = findViewById(R.id.buttonScanQR);
         Button reportIssue = findViewById(R.id.buttonReportIssue);
         Button reportList = findViewById(R.id.buttonReportList);
         Button logoutButton = findViewById(R.id.logout_button);
 
-        // powiązanie (TextView) dla zalogowanego użytkownika
         TextView loggedUserText = findViewById(R.id.tv_logged_user);
         String loggedUser = prefs.getString("username", "Nieznany użytkownik");
         loggedUserText.setText("Zalogowany użytkownik: " + loggedUser);  // Wyświetlenie loginu
 
 
-        // animacja przycisków
         ButtonAnimationUtil.applySpringAnimation(scanQR);
         ButtonAnimationUtil.applySpringAnimation(reportIssue);
         ButtonAnimationUtil.applySpringAnimation(reportList);
         ButtonAnimationUtil.applySpringAnimation(logoutButton);
 
-        // obsługa kliknięć
         logoutButton.setOnClickListener(v -> {
             SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean("isLoggedIn", false);
@@ -72,10 +69,6 @@ public class MainActivity extends AppCompatActivity {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
             getWindow().setDecorFitsSystemWindows(false);
 
-
         }
-
-
     }
-
 }

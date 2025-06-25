@@ -39,7 +39,6 @@ public class TicketDetailActivity extends AppCompatActivity {
         ImageButton buttonBack = findViewById(R.id.buttonBack);
         buttonBack.setOnClickListener(v -> finish());
 
-        // powiązanie widoków
         tvTitle = findViewById(R.id.tv_detail_title);
         tvDescription = findViewById(R.id.tv_detail_description);
         tvStatus = findViewById(R.id.tv_detail_status);
@@ -53,7 +52,6 @@ public class TicketDetailActivity extends AppCompatActivity {
 
         ticketApi = ApiClient.getClient().create(TicketApi.class);
 
-        // wyświetlenie danych
         String reportIdStr = getIntent().getStringExtra("reportId");
         if (reportIdStr != null) {
             try {

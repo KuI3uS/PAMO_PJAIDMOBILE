@@ -35,7 +35,6 @@ public class ReportRepositoryImpl implements ReportRepository {
 
     @Override
     public Single<ReportItem> getReportById(String id) {
-        // pobieranie z listy lub bazy danych
         return getAllReports()
                 .map(list -> {
                     for (ReportItem item : list) {
