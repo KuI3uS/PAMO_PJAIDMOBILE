@@ -11,9 +11,9 @@ MVP (Minimum Viable Product)
 
 | Person              | Tasks                                                            |
 |---------------------|------------------------------------------------------------------|
-| Jakub Marcinkowski  | [ANDROID] Formularz zgłoszenia awarii, Lista zgłoszeń użytkownika|
-| Dagmara Gibas       | [ANDROID] Szczegóły zgłoszenia                                   |
-| Karol Spica         | [ANDROID] Dodanie odczytywanie QR kodu w aplikacji mobilnej      |
+| Jakub Marcinkowski  | [ANDROID] Failure report form, User's list of reports            |
+| Dagmara Gibas       | [ANDROID] Report details                                         |
+| Karol Spica         | [ANDROID] Adding QR code scanning in the mobile app              |
 ------------------------------------------------------------------------------------------
 
 
