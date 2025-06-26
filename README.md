@@ -15,7 +15,15 @@ Zespół & podział zadań
 | Dagmara Gibas       | [ANDROID] Szczegóły zgłoszenia                                   |
 | Karol Spica         | [ANDROID] Dodanie odczytywanie QR kodu w aplikacji mobilnej      |
 ------------------------------------------------------------------------------------------
+## Short Description of the Application
 
+PJAID Mobile is a mobile application for reporting and managing technical failures in industrial equipment, mainly targeted at technicians and maintenance personnel. The key features include:
+-	Submitting reports via a dedicated form
+-	Describing the issue, setting the status, and adding a location (via GPS or manually)
+-	Viewing a user-specific list of reported issues
+-	Editing and updating ticket details
+-	Google Maps integration for location display
+-   QR code scanning for identifying equipment
 
 # Instrukcja korzystania z Gita
 
@@ -85,3 +93,43 @@ Po zakończeniu pracy nad funkcjonalnością:
 ## Pełen workflow CI/CD zastosowany w projekcie
 
 ![Schemat CICD](image/projectFlow.png)
+
+## Requirements and Management – Checklist
+
+Criterion
+Status
+Justification
+1.Is a short description of the application provided?
+- Included in this message and the final presentation.
+
+2.Is a list of requirements and features provided?
+- All features were defined as epics and stories in JIRA.
+
+3.Is the task list provided?
+- Tasks are documented in JIRA (e.g., PAMO-7, PAMO-15, PAMO-26, etc.).
+
+4.Are tasks correctly assigned and equally distributed?
+- Tasks were fairly distributed – visible in JIRA task history.
+
+5.Are tasks clearly defined (Definition of Done)?
+- Each task included a description, implementation steps, and a status.
+
+6.Is access provided to P.Czapiewski?
+- An invitation to both the repository and JIRA was sent earlier.
+
+7.Is English used for all deliverables?
+- Commit messages, task descriptions, and source code are all in English.
+
+
+## Tools Used
+
+- Language: Java (Android)
+- IDE: Android Studio
+- Libraries and Frameworks:
+- Retrofit + RxJava (API communication)
+- ZXing (QR scanning)
+- Google Maps API (location services)
+- Hilt (dependency injection)
+- ViewBinding (UI binding)
+- Project management: JIRA
+- Version control: Git + GitHub

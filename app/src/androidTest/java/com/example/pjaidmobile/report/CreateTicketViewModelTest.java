@@ -1,4 +1,4 @@
-package com.example.pjaidmobile.domain.usecase;
+package com.example.pjaidmobile.report;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -16,6 +16,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import com.example.pjaidmobile.data.model.Location;
 import com.example.pjaidmobile.data.model.TicketRequest;
 import com.example.pjaidmobile.data.model.TicketResponse;
+import com.example.pjaidmobile.domain.usecase.CreateTicketUseCase;
 import com.example.pjaidmobile.presentation.features.report.CreateTicketViewModel;
 import com.example.pjaidmobile.util.LocationProvider;
 
