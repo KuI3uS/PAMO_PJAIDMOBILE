@@ -85,3 +85,66 @@ Po zakończeniu pracy nad funkcjonalnością:
 ## Pełen workflow CI/CD zastosowany w projekcie
 
 ![Schemat CICD](image/projectFlow.png)
+
+Kod źródłowy jest analizowany przez SonarCloud pod kątem:
+- błędów
+- luk bezpieczeństwa (Security Hotspots, Bugs, Code Smells)
+- pokrycia testami
+
+# Sonar example
+![Schemat CICD](image/sonar.png)
+
+# Pull request example
+![Schemat CICD](image/pr.png)
+
+# Commits example
+![Schemat CICD](image/commits.png)
+
+
+Dokumentacja kodu była prowadzona przy użyciu JavaDock. Komentarze staraliśmy się umieszczać na poziomie klas oraz metod które według nas tego wymagały. 
+# Class commit example
+![Schemat CICD](image/classComment.png)
+
+
+# Method commit example
+![Schemat CICD](image/methodComment.png)
+
+
+# Testy jednostkowe (Unit tests)
+## Narzędzia:
+JUnit
+ – Framework testowy do testów jednostkowych i instrumentacyjnych
+ – Używany do: @Test, @Before, @After, assertEquals, itd.
+
+
+Mockito
+ – Biblioteka do mockowania obiektów i weryfikacji interakcji
+ – Używany do: mock(), when(), verify(), @Mock, mockStatic()
+
+
+Espresso
+ – Biblioteka do testów UI – interakcje z widokami (onView(), withId(), perform(), check())
+
+
+AndroidJUnitRunner
+ – Androidowy runner do uruchamiania instrumentacyjnych testów (@RunWith(AndroidJUnit4.class))
+
+
+UIAutomator
+ – (niewykryty w liniach kodu, ale zadeklarowany w build.gradle.kts) – służy do testowania interfejsów zewnętrznych, np. dialogów systemowych, powiadomień
+
+
+
+## Przykładowe klasy z testami jednostkowymi:
+- GetDeviceByIdUseCaseTest.java – test logiki pobierania urządzenia
+- SendReportUseCaseTest.java – test logiki wysyłki zgłoszenia
+- TokenAuthenticatorTest.java – test klasy odpowiedzialnej za autoryzację JWT/tokeny
+
+
+## Testy instrumentacyjne (Instrumented tests)
+Przykładowe klasy z testami instrumentacyjnymi:
+- MainActivityTest.java – test działania MainActivity
+- CreateTicketActivityTest.java – test działania ekranu zgłoszenia
+
+## Monkey test
+![Schemat CICD](image/monkeyTest.png)
