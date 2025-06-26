@@ -1,15 +1,15 @@
-Aplikacja mobilna do zgłaszania i zarządzania awariami urządzeń w ramach systemu PJAID.
+# Mobile Application for Reporting and Managing Device Failures within the PJAID System
 
 MVP (Minimum Viable Product)
-- Rejestracja zgłoszenia awarii
-- Skanowanie kodu QR
-- Lista zgłoszeń użytkownika
-- Szczegóły zgłoszenia
+- Failure report registration
+- QR code scanning
+- User's list of reports
+- Report details
 
 
-Zespół & podział zadań
+## Team & task division
 
-| Osoba               | Zadania                                                          |
+| Person              | Tasks                                                            |
 |---------------------|------------------------------------------------------------------|
 | Jakub Marcinkowski  | [ANDROID] Formularz zgłoszenia awarii, Lista zgłoszeń użytkownika|
 | Dagmara Gibas       | [ANDROID] Szczegóły zgłoszenia                                   |
@@ -25,9 +25,10 @@ PJAID Mobile is a mobile application for reporting and managing technical failur
 -	Google Maps integration for location display
 -   QR code scanning for identifying equipment
 
-# Instrukcja korzystania z Gita
+# Git usage instructions
 
-Zarządzanie kodem źródłowym w zespole projektowym opierało się na systemie kontroli wersji GIT. Poniżej przedstawiono dobre praktyki, które obowiązywały podczas pracy z repozytorium.
+Source code management in the project team was based on the GIT version control system. Below are the best practices followed during work with the repository.
+
 
 ## Tworzenie brancha
 
@@ -93,6 +94,70 @@ Po zakończeniu pracy nad funkcjonalnością:
 ## Pełen workflow CI/CD zastosowany w projekcie
 
 ![Schemat CICD](image/projectFlow.png)
+
+Kod źródłowy jest analizowany przez SonarCloud pod kątem:
+- błędów
+- luk bezpieczeństwa (Security Hotspots, Bugs, Code Smells)
+- pokrycia testami
+
+# Sonar example
+![Schemat CICD](image/sonar.png)
+
+# Pull request example
+![Schemat CICD](image/pr.png)
+
+# Commits example
+![Schemat CICD](image/commits.png)
+
+
+Dokumentacja kodu była prowadzona przy użyciu JavaDock. Komentarze staraliśmy się umieszczać na poziomie klas oraz metod które według nas tego wymagały. 
+# Class commit example
+![Schemat CICD](image/classComment.png)
+
+
+# Method commit example
+![Schemat CICD](image/methodComment.png)
+
+
+# Testy jednostkowe (Unit tests)
+## Narzędzia:
+JUnit
+ – Framework testowy do testów jednostkowych i instrumentacyjnych
+ – Używany do: @Test, @Before, @After, assertEquals, itd.
+
+
+Mockito
+ – Biblioteka do mockowania obiektów i weryfikacji interakcji
+ – Używany do: mock(), when(), verify(), @Mock, mockStatic()
+
+
+Espresso
+ – Biblioteka do testów UI – interakcje z widokami (onView(), withId(), perform(), check())
+
+
+AndroidJUnitRunner
+ – Androidowy runner do uruchamiania instrumentacyjnych testów (@RunWith(AndroidJUnit4.class))
+
+
+UIAutomator
+ – (niewykryty w liniach kodu, ale zadeklarowany w build.gradle.kts) – służy do testowania interfejsów zewnętrznych, np. dialogów systemowych, powiadomień
+
+
+
+## Przykładowe klasy z testami jednostkowymi:
+- GetDeviceByIdUseCaseTest.java – test logiki pobierania urządzenia
+- SendReportUseCaseTest.java – test logiki wysyłki zgłoszenia
+- TokenAuthenticatorTest.java – test klasy odpowiedzialnej za autoryzację JWT/tokeny
+
+
+## Testy instrumentacyjne (Instrumented tests)
+Przykładowe klasy z testami instrumentacyjnymi:
+- MainActivityTest.java – test działania MainActivity
+- CreateTicketActivityTest.java – test działania ekranu zgłoszenia
+
+## Monkey test
+![Schemat CICD](image/monkeyTest.png)
+
 
 ## Requirements and Management – Checklist
 
