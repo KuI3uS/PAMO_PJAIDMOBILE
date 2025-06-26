@@ -11,9 +11,9 @@ MVP (Minimum Viable Product)
 
 | Person              | Tasks                                                            |
 |---------------------|------------------------------------------------------------------|
-| Jakub Marcinkowski  | [ANDROID] Formularz zgłoszenia awarii, Lista zgłoszeń użytkownika|
-| Dagmara Gibas       | [ANDROID] Szczegóły zgłoszenia                                   |
-| Karol Spica         | [ANDROID] Dodanie odczytywanie QR kodu w aplikacji mobilnej      |
+| Jakub Marcinkowski  | [ANDROID] Failure report form, User's list of reports            |
+| Dagmara Gibas       | [ANDROID] Report details                                         |
+| Karol Spica         | [ANDROID] Adding QR code scanning in the mobile app              |
 ------------------------------------------------------------------------------------------
 ## Short Description of the Application
 
@@ -30,133 +30,125 @@ PJAID Mobile is a mobile application for reporting and managing technical failur
 Source code management in the project team was based on the GIT version control system. Below are the best practices followed during work with the repository.
 
 
-## Tworzenie brancha
+## Creating a Branch
 
-- Zanim rozpoczniesz pracę nad nową funkcjonalnością lub poprawką, utwórz nowy branch.  
-- Dzięki temu nie będziesz ingerować w główną gałąź projektu (main).  
-- Każda zmiana powinna być realizowana w osobnym branchu.  
-- W przypadku dłuższej pracy commituj zmiany regularnie.
+- Before starting work on a new feature or fix, create a new branch.  
+- This way, you won't interfere with the main branch of the project (main).  
+- Each change should be implemented in a separate branch.  
+- For longer work, commit changes regularly.
 
-## Pull Request i Code Review
+## Pull Request and Code Review
 
-Po zakończeniu pracy nad funkcjonalnością:
+After finishing work on a feature:
 
-1. Przejdź na platformę **GitHub** i utwórz **Pull Request (PR)**.  
-2. Jako gałąź roboczą wskaż **swój branch**, jako docelową – **main**.
-3. Inni członkowie zespołu dokonują przeglądu kodu (Code Review), który obejmuje:
-   - sprawdzenie logiki implementacji,
-   - zgodność ze standardami kodowania,
-   - weryfikację braku błędów.
-4. Wprowadź poprawki zgodnie z uwagami i wykonaj kolejny commit — zmiany zostaną automatycznie dołączone do istniejącego PR.
+1. Go to **GitHub** and create a **Pull Request (PR)**.  
+2. Set **your branch** as the source, and **main** as the target.
+3. Other team members perform a **Code Review**, which includes:
+   - logic implementation check,
+   - compliance with coding standards,
+   - error verification.
+4. Make corrections according to comments and commit again — changes will be automatically added to the existing PR.
 
-## Testowanie i scalanie zmian
+## Testing and merging changes
 
-- Przed zatwierdzeniem PR, dokładnie przetestuj swój branch.
-- Upewnij się, że nie występują błędy oraz że wszystkie testy jednostkowe i integracyjne przechodzą poprawnie.
-- Po pomyślnym mergowaniu do main, usuń swój branch lokalnie i zdalnie.
+- Before approving the PR, thoroughly test your branch.
+- Make sure there are no errors and that all unit and integration tests pass.
+- After successfully merging into `main`, delete your branch locally and remotely.
 
-## Konwencje nazewnictwa
+## Naming Conventions
 
-### Nazwy branchy:
+### Branch names:
 
-`SCRUM_NUMER_TASKA_krotki_opis`
+`SCRUM_TASK_NUMBER_short_description`
 
-**Przykład:**  
-`SCRUM_4_konfiguracja_bazy`
+**Example:**  
+`SCRUM_4_database_configuration`
 
-### Opisy commitów:
+### Commit messages:
 ```
-[SCRUM 4] - krótki opis tego co robią commitowane zmiany
+[SCRUM 4] - short description of the committed changes
 ```
 
-## Podsumowanie
+## Summary
 
-1. Twórz nowy branch przed każdą zmianą  
-2. Commituj zmiany regularnie  
-3. Twórz Pull Requesty po zakończeniu pracy  
-4. Przeprowadzaj Code Review przed mergowaniem  
-5. Scalaj tylko przetestowany kod  
-6. Usuwaj nieaktualne branche
+1. Create a new branch before each change  
+2. Commit changes regularly  
+3. Create Pull Requests after finishing work  
+4. Conduct Code Review before merging  
+5. Merge only tested code  
+6. Delete outdated branches
 
 ---
 
-# Instrukcja korzystania z Sonara
+# Sonar usage instructions
 
-- Warto do IDE zainstalować sobie wtyczkę **SonarQube for IDE** (dla użytkowników IntelliJ).  
-- Wtyczka dodaje do menu kontekstowego opcję:  
+- It is worth installing the **SonarQube for IDE** plugin for your IDE (for IntelliJ users).  
+- The plugin adds the context menu option:  
   **"Analyze with SonarCube for IDE"**.  
-- Po uruchomieniu tej opcji pojawią się **informacje o tym, co należy poprawić w kodzie**.
-- Warto mieć ją zainstalowaną lokalnie, ponieważ na GitHub dodane zostały tzw. **GitHub Actions**, które **automatycznie uruchamiają analizę Sonara**.
-- Jeśli kod **nie przejdzie analizy pozytywnie**, możliwość jego mergowania zostanie **zablokowana**.
+- After launching this option, **information about what should be improved in the code** will appear.
+- It's useful to have it installed locally, because **GitHub Actions** have been added to GitHub that **automatically run Sonar analysis**.
+- If the code **does not pass the analysis**, the ability to merge it will be **blocked**
 
 ---
 
-## Pełen workflow CI/CD zastosowany w projekcie
+## Full CI/CD workflow used in the project
 
 ![Schemat CICD](image/projectFlow.png)
 
-Kod źródłowy jest analizowany przez SonarCloud pod kątem:
-- błędów
-- luk bezpieczeństwa (Security Hotspots, Bugs, Code Smells)
-- pokrycia testami
+Source code is analyzed by SonarCloud for:
+- bugs
+- security vulnerabilities (Security Hotspots, Bugs, Code Smells)
+- test coverage
 
 # Sonar example
-![Schemat CICD](image/sonar.png)
+![Sonar exampl](image/sonar.png)
 
 # Pull request example
-![Schemat CICD](image/pr.png)
+![PR exampl](image/pr.png)
 
 # Commits example
-![Schemat CICD](image/commits.png)
+![Commits exampl](image/commits.png)
+
+Code documentation was maintained using JavaDoc. We tried to place comments at the class level and methods that we considered needed  
+# Class comment example
+![Class comment](image/classComment.png)
+
+# Method comment example
+![Method comment](image/methodComment.png)
 
 
-Dokumentacja kodu była prowadzona przy użyciu JavaDock. Komentarze staraliśmy się umieszczać na poziomie klas oraz metod które według nas tego wymagały. 
-# Class commit example
-![Schemat CICD](image/classComment.png)
+# Unit tests
+
+## Tools:
+**JUnit**  
+– Testing framework for unit and instrumentation tests  
+– Used for: `@Test`, `@Before`, `@After`, `assertEquals`, etc.
+
+**Mockito**  
+– Library for mocking objects and verifying interactions  
+– Used for: `mock()`, `when()`, `verify()`, `@Mock`, `mockStatic()`
+
+**Espresso**  
+– UI testing library – interactions with views (`onView()`, `withId()`, `perform()`, `check()`)
+
+**AndroidJUnitRunner**  
+– Android runner for running instrumentation tests (`@RunWith(AndroidJUnit4.class)`)
 
 
-# Method commit example
-![Schemat CICD](image/methodComment.png)
+## Example classes with unit tests::
+- GetDeviceByIdUseCaseTest.java – tests logic of retrieving a device
+- SendReportUseCaseTest.java – tests logic of sending a report
+- TokenAuthenticatorTest.java – tests JWT/token authorization logic
 
 
-# Testy jednostkowe (Unit tests)
-## Narzędzia:
-JUnit
- – Framework testowy do testów jednostkowych i instrumentacyjnych
- – Używany do: @Test, @Before, @After, assertEquals, itd.
+# Instrumented tests
 
-
-Mockito
- – Biblioteka do mockowania obiektów i weryfikacji interakcji
- – Używany do: mock(), when(), verify(), @Mock, mockStatic()
-
-
-Espresso
- – Biblioteka do testów UI – interakcje z widokami (onView(), withId(), perform(), check())
-
-
-AndroidJUnitRunner
- – Androidowy runner do uruchamiania instrumentacyjnych testów (@RunWith(AndroidJUnit4.class))
-
-
-UIAutomator
- – (niewykryty w liniach kodu, ale zadeklarowany w build.gradle.kts) – służy do testowania interfejsów zewnętrznych, np. dialogów systemowych, powiadomień
-
-
-
-## Przykładowe klasy z testami jednostkowymi:
-- GetDeviceByIdUseCaseTest.java – test logiki pobierania urządzenia
-- SendReportUseCaseTest.java – test logiki wysyłki zgłoszenia
-- TokenAuthenticatorTest.java – test klasy odpowiedzialnej za autoryzację JWT/tokeny
-
-
-## Testy instrumentacyjne (Instrumented tests)
-Przykładowe klasy z testami instrumentacyjnymi:
-- MainActivityTest.java – test działania MainActivity
-- CreateTicketActivityTest.java – test działania ekranu zgłoszenia
+## Example classes with instrumented tests:
+- MainActivityTest.java – tests operation of  MainActivity
+- CreateTicketActivityTest.java – tests the report submission screen
 
 ## Monkey test
-![Schemat CICD](image/monkeyTest.png)
+![Monkey test](image/monkeyTest.png)
 
 
 ## Requirements and Management – Checklist
