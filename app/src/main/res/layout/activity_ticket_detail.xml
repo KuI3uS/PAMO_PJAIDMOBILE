@@ -72,7 +72,7 @@
                     android:id="@+id/tv_detail_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tytuł zgłoszenia"
+                    android:text="@string/report_title"
                     android:textColor="#212121"
                     android:textSize="23sp"
                     android:textStyle="bold"

@@ -35,6 +35,12 @@
     <string name="report_send">Wyślij zgłoszenie</string>
     <string name="back">Wstecz</string>
     <string name="save_changes">Zapisz zmiany</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="opis_zg_oszenia">Opis zgłoszenia</string>
+    <string name="technik">Technik:</string>
+    <string name="status">Status:</string>
+    <string name="data">Data:</string>
+    <string name="przejd_do_szczeg_w">Przejdź do szczegółów</string>
     <string-array name="status_options">
         <item>NOWE</item>
         <item>W TRAKCIE</item>

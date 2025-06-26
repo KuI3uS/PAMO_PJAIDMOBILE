@@ -57,6 +57,9 @@
             android:name=".presentation.features.report.TicketDetailActivity"
             android:exported="false" />
         <activity android:name=".presentation.features.auth.RegisterActivity" />
+        <activity
+            android:name=".data.model.EditTicketActivity"
+            android:exported="false" />
 
         <activity
             android:name=".presentation.common.MainActivity"

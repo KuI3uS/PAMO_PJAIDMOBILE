@@ -96,7 +96,7 @@
                     android:layout_height="30dp"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_person"
-                    android:tint="#555" />
+                    app:tint="#555" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/username_edit_text"
@@ -105,13 +105,12 @@
                     android:layout_marginStart="8dp"
                     android:layout_toEndOf="@id/icon_user"
                     android:background="@android:color/transparent"
-                    android:hint="Username or email"
+                    android:hint="@string/username_or_email"
                     android:padding="8dp"
                     android:textColor="#333"
                     android:textColorHint="#666" />
             </RelativeLayout>
 
-            <!-- hasło -->
             <RelativeLayout
                 android:id="@+id/password_container"
                 android:layout_width="0dp"
@@ -124,14 +123,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/username_container">
 
-                <!-- ikona klucz -->
                 <ImageView
                     android:id="@+id/icon_key"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_key"
-                    android:tint="#555" />
+                    app:tint="#555" />
 
                 <!-- oko -->
                 <ImageView
@@ -145,9 +143,8 @@
                     android:contentDescription="@string/toggle_password_visibility"
                     android:focusable="true"
                     android:src="@drawable/ic_visibility_off"
-                    android:tint="#555" />
+                    app:tint="#555" />
 
-                <!-- pole tekstowe hasła -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password_edit_text"
                     android:layout_width="match_parent"
@@ -157,14 +154,13 @@
                     android:layout_toStartOf="@id/password_visibility_icon"
                     android:layout_toEndOf="@id/icon_key"
                     android:background="@android:color/transparent"
-                    android:hint="Password"
+                    android:hint="@string/password"
                     android:inputType="textPassword"
                     android:padding="8dp"
                     android:textColor="#333"
                     android:textColorHint="#666" />
             </RelativeLayout>
 
-            <!-- ZAPAMIĘTAJ / RESET -->
             <CheckBox
                 android:id="@+id/remember_me_checkbox"
                 android:layout_width="wrap_content"
@@ -203,7 +199,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/password_container" />
 
-            <!-- przycisk logowania -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/sign_in_button"
                 android:layout_width="wrap_content"
@@ -229,7 +224,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Don't have an account? Sign Up"
+                android:text="@string/don_t_have_an_account_sign_up"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"
                 android:textAlignment="center"
