@@ -1,15 +1,15 @@
-Aplikacja mobilna do zgłaszania i zarządzania awariami urządzeń w ramach systemu PJAID.
+# Mobile Application for Reporting and Managing Device Failures within the PJAID System
 
 MVP (Minimum Viable Product)
-- Rejestracja zgłoszenia awarii
-- Skanowanie kodu QR
-- Lista zgłoszeń użytkownika
-- Szczegóły zgłoszenia
+- Failure report registration
+- QR code scanning
+- User's list of reports
+- Report details
 
 
-Zespół & podział zadań
+## Team & task division
 
-| Osoba               | Zadania                                                          |
+| Person              | Tasks                                                            |
 |---------------------|------------------------------------------------------------------|
 | Jakub Marcinkowski  | [ANDROID] Formularz zgłoszenia awarii, Lista zgłoszeń użytkownika|
 | Dagmara Gibas       | [ANDROID] Szczegóły zgłoszenia                                   |
@@ -17,9 +17,10 @@ Zespół & podział zadań
 ------------------------------------------------------------------------------------------
 
 
-# Instrukcja korzystania z Gita
+# Git usage instructions
 
-Zarządzanie kodem źródłowym w zespole projektowym opierało się na systemie kontroli wersji GIT. Poniżej przedstawiono dobre praktyki, które obowiązywały podczas pracy z repozytorium.
+Source code management in the project team was based on the GIT version control system. Below are the best practices followed during work with the repository.
+
 
 ## Tworzenie brancha
 
