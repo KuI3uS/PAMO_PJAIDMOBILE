@@ -33,7 +33,7 @@ Source code management in the project team was based on the GIT version control 
 
 ## JIRA tasks
 
-[Tablica JIRA](hhttps://pjwstk-inz-team.atlassian.net/jira/software/projects/PAMO/boards/100/timeline?selectedIssue=PAMO-14)
+https://pjwstk-inz-team.atlassian.net/jira/software/projects/PAMO/boards/100/timeline?selectedIssue=PAMO-14
 
 ## Creating a Branch
 
