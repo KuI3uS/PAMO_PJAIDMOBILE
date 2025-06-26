@@ -108,10 +108,10 @@ Source code is analyzed by SonarCloud for:
 # Sonar example
 ![Sonar exampl](image/sonar.png)
 
-#IntelliJ analysis before corrections
+# IntelliJ analysis before corrections
 ![Sonar exampl](image/analyzys.png)
 
-#IntelliJ analysis after corrections
+# IntelliJ analysis after corrections
 ![Sonar exampl](image/analyzysWithoutError.png)
 
 # Pull request example
