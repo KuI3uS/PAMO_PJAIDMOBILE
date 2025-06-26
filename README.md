@@ -29,6 +29,11 @@ PJAID Mobile is a mobile application for reporting and managing technical failur
 
 Source code management in the project team was based on the GIT version control system. Below are the best practices followed during work with the repository.
 
+![JIRA tasks](image/JIRA.png)
+
+## JIRA tasks
+
+[Tablica JIRA](hhttps://pjwstk-inz-team.atlassian.net/jira/software/projects/PAMO/boards/100/timeline?selectedIssue=PAMO-14)
 
 ## Creating a Branch
 
@@ -133,6 +138,16 @@ Code documentation was maintained using JavaDoc. We tried to place comments at t
 
 **AndroidJUnitRunner**  
 – Android runner for running instrumentation tests (`@RunWith(AndroidJUnit4.class)`)
+
+## CreateTicketViewModelTest
+
+This test class covers the core logic of submitting a failure report through the mobile app:
+
+- `getCurrentLocation_shouldPostLocationToLiveData`: verifies that location is properly retrieved and stored.
+- `submitTicket_shouldCallUseCaseExecute`: ensures that submitting a ticket calls the business logic handler (use case).
+- `getCurrentLocation_shouldNotCrashOnError`: checks that the app handles location retrieval failures gracefully.
+
+All dependencies are mocked to isolate the ViewModel logic from external services.
 
 
 ## Example classes with unit tests::
