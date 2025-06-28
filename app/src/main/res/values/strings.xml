@@ -68,6 +68,7 @@
     <string name="technician_lack">Technik: Brak</string>
     <string name="logged_user">Zalogowany użytkownik: %1$s</string>
     <string name="unknown_user">Nieznany użytkownik</string>
+    <string name="camera_permission_error">Brak uprawnień do kamery</string>
     <string-array name="status_options">
         <item>NOWE</item>
         <item>W TRAKCIE</item>
