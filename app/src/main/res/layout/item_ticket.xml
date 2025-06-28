@@ -23,7 +23,7 @@
             android:layout_width="10dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Opis zgłoszenia"
+            android:text="@string/report_description"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -32,7 +32,7 @@
             android:id="@+id/arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="➔"
+            android:text="@string/arrow"
             android:textSize="18sp"
             android:textColor="#000000"
             android:paddingStart="8dp"/>
@@ -43,7 +43,7 @@
         android:id="@+id/textViewDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Data"
+        android:text="@string/data"
         android:textSize="14sp"
         android:textColor="#BCBABA" />
 
@@ -51,7 +51,7 @@
         android:id="@+id/textViewStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Status: Oczekuje"
+        android:text="@string/status_pending"
         android:textSize="20sp"
         android:textColor="#444444" />
 
@@ -59,7 +59,7 @@
         android:id="@+id/textViewTechnician"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Technik: Brak"
+        android:text="@string/technician_lack"
         android:textSize="14sp"
         android:textColor="#444444" />
 </androidx.cardview.widget.CardView>

@@ -79,7 +79,7 @@ public class ReportListAdapter extends ListAdapter<ReportItem, ReportListAdapter
             holder.container.setBackgroundResource(R.drawable.bg_status_closed);
         } else {
             color = Color.DKGRAY;
-            holder.container.setBackgroundResource(R.drawable.rounded_background); // np. domyślne szare
+            holder.container.setBackgroundResource(R.drawable.rounded_background);
         }
 
         value.setSpan(new ForegroundColorSpan(color), 0, value.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

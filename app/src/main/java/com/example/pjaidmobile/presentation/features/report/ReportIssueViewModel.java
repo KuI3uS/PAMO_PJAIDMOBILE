@@ -17,10 +17,10 @@ public class ReportIssueViewModel extends ViewModel {
     private static final String TAG = "ReportIssueViewModel";
     private final SendReportUseCase sendReportUseCase;
     private final MutableLiveData<ReportUiState> _uiState = new MutableLiveData<>(ReportUiState.IDLE);
-    public final LiveData<ReportUiState> uiState = _uiState; // Publiczny LiveData
-    private final CompositeDisposable disposables = new CompositeDisposable(); // Do zarządzania subskrypcjami RxJava
+    public final LiveData<ReportUiState> uiState = _uiState;
+    private final CompositeDisposable disposables = new CompositeDisposable();
 
-    private String deviceId; // Przechowujemy ID
+    private String deviceId;
 
     @Inject
     public ReportIssueViewModel(SendReportUseCase sendReportUseCase, SavedStateHandle savedStateHandle) {

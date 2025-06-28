@@ -34,8 +34,9 @@ public class MainActivity extends AppCompatActivity {
         Button logoutButton = findViewById(R.id.logout_button);
 
         TextView loggedUserText = findViewById(R.id.tv_logged_user);
-        String loggedUser = prefs.getString("username", "Nieznany użytkownik");
-        loggedUserText.setText("Zalogowany użytkownik: " + loggedUser);  // Wyświetlenie loginu
+        String loggedUser = prefs.getString("username", getString(R.string.unknown_user));
+        loggedUserText.setText(getString(R.string.logged_user, loggedUser));
+
 
 
         ButtonAnimationUtil.applySpringAnimation(scanQR);

@@ -43,7 +43,7 @@ public class ReportListViewModel extends ViewModel {
     protected void onCleared() {
         super.onCleared();
         if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose(); // 🔥 Unikamy wycieków pamięci
+            disposable.dispose();
         }
     }
 }

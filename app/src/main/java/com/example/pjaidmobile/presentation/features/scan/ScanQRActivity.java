@@ -35,7 +35,7 @@ public class ScanQRActivity extends AppCompatActivity {
                 if (isGranted != null && isGranted) {
                     startScanning();
                 } else {
-                    Toast.makeText(this, "Brak uprawnień do kamery", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getString(R.string.camera_permission_error), Toast.LENGTH_LONG).show();
                     finish();
                 }
             });
