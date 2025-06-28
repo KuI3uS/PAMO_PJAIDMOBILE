@@ -3,9 +3,7 @@ package com.example.pjaidmobile.domain.usecase;
 import com.example.pjaidmobile.data.model.TicketRequest;
 import com.example.pjaidmobile.data.model.TicketResponse;
 import com.example.pjaidmobile.domain.repository.TicketRepository;
-
 import javax.inject.Inject;
-
 import retrofit2.Callback;
 
 public class CreateTicketUseCase {

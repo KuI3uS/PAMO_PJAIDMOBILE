@@ -1,5 +1,10 @@
 package com.example.pjaidmobile.data.model;
 
+/**
+ * A data model representing a device in the system.
+ * Can be used to display information about the equipment, its service history, etc.
+ */
+
 public class Device {
     private String id;
     private String name;

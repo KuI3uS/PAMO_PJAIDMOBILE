@@ -7,19 +7,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.example.pjaidmobile.R;
 import com.example.pjaidmobile.data.model.Device;
 import com.example.pjaidmobile.presentation.features.report.CreateTicketActivity;
 import com.example.pjaidmobile.util.DeviceIntentHelper;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
-
 import dagger.hilt.android.AndroidEntryPoint;
 
 /**

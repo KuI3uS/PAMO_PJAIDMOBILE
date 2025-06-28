@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- tło -->
+    <!-- background -->
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="0dp"
@@ -20,8 +20,8 @@
 
     <ImageButton
         android:id="@+id/buttonBack"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginTop="32dp"
         android:layout_marginStart="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -36,13 +36,13 @@
         android:layout_width="315dp"
         android:layout_height="250dp"
         android:src="@drawable/logo"
-        android:contentDescription="Logo aplikacji"
+        android:contentDescription="@string/logo_description."
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp" />
 
-    <!-- treść do przewijania -->
+    <!-- scrollable content -->
     <ScrollView
         android:id="@+id/scroll_container"
         android:layout_width="0dp"
@@ -67,7 +67,7 @@
                 android:background="#FCFDFF"
                 android:padding="24dp">
 
-                <!-- tytuł -->
+                <!-- title -->
                 <TextView
                     android:id="@+id/tv_detail_title"
                     android:layout_width="match_parent"
@@ -77,49 +77,67 @@
                     android:textSize="23sp"
                     android:textStyle="bold"
                     android:gravity="center_horizontal"
-                    android:layout_marginBottom="12dp" />
+                    android:layout_marginBottom="8dp" />
 
-                <!-- opis -->
+                <!-- description -->
                 <TextView
                     android:id="@+id/tv_detail_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Opis zgłoszenia:"
+                    android:text="@string/description"
                     android:textSize="17sp"
                     android:textColor="#333333"
                     android:layout_marginBottom="8dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DDDDDD"
+                    android:layout_marginBottom="16dp" />
 
                 <!-- status -->
                 <TextView
                     android:id="@+id/tv_detail_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Status:"
+                    android:text="@string/status"
                     android:textSize="16sp"
                     android:textColor="#333333"
                     android:layout_marginBottom="4dp" />
 
-                <!-- przekierowanie -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DDDDDD"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- assigned to -->
                 <TextView
                     android:id="@+id/tv_detail_assignee"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Assigned to:"
+                    android:text="@string/assigned"
                     android:textSize="16sp"
                     android:textColor="#333333"
                     android:layout_marginBottom="4dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DDDDDD"
+                    android:layout_marginBottom="16dp" />
 
                 <!-- data -->
                 <TextView
                     android:id="@+id/tv_detail_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Created:"
+                    android:text="@string/created"
                     android:textSize="16sp"
                     android:textColor="#888888"
                     android:layout_marginBottom="16dp" />
 
-                <!-- przyciski -->
+                <!-- button -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -128,11 +146,12 @@
 
                     <Button
                         android:id="@+id/btn_edit_ticket"
+                        style="?android:attr/buttonBarButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="12dp"
                         android:backgroundTint="@color/material_dynamic_primary20"
-                        android:text="Edytuj"
+                        android:text="@string/edit"
                         android:textColor="#FFFFFF"
                         android:paddingStart="32dp"
                         android:paddingEnd="32dp"
@@ -140,19 +159,21 @@
                         android:paddingBottom="8dp" />
 
                     <Button
-                        android:id="@+id/btn_delete_ticket"
+                        android:id="@+id/btn_save"
+                        style="?android:attr/buttonBarButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#D32F2F"
-                        android:text="Usuń"
+                        android:backgroundTint="#203C22"
+                        android:text="@string/save"
                         android:textColor="#FFFFFF"
                         android:paddingStart="32dp"
                         android:paddingEnd="32dp"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp" />
 
-                </LinearLayout>
 
+
+                </LinearLayout>
 
             </LinearLayout>
 

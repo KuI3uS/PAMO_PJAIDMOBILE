@@ -4,11 +4,8 @@ import com.example.pjaidmobile.data.model.TicketRequest;
 import com.example.pjaidmobile.data.model.TicketResponse;
 import com.example.pjaidmobile.data.remote.api.TicketApi;
 import com.example.pjaidmobile.domain.repository.TicketRepository;
-
 import java.io.IOException;
-
 import javax.inject.Inject;
-
 import retrofit2.Call;
 import retrofit2.Response;
 

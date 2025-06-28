@@ -2,12 +2,6 @@ package com.example.pjaidmobile.data.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-
 public class TicketResponse {
 
     @SerializedName("id")

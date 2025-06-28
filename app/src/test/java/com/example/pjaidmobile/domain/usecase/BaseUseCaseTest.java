@@ -3,9 +3,7 @@ package com.example.pjaidmobile.domain.usecase;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
-
 import android.util.Log;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.mockito.MockedStatic;

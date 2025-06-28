@@ -17,17 +17,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.pjaidmobile.R;
 import com.example.pjaidmobile.data.model.AuthResponse;
 import com.example.pjaidmobile.domain.usecase.LoginUseCase;
 import com.example.pjaidmobile.presentation.common.MainActivity;
 import com.example.pjaidmobile.util.ButtonAnimationUtil;
-
 import javax.inject.Inject;
-
 import dagger.hilt.android.AndroidEntryPoint;
 import retrofit2.Call;
 import retrofit2.Callback;

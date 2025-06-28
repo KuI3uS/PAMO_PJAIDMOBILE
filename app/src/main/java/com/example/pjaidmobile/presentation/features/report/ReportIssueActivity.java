@@ -6,13 +6,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.example.pjaidmobile.R;
 import com.example.pjaidmobile.util.Constants;
-
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint

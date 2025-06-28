@@ -2,15 +2,15 @@ package com.example.pjaidmobile.util;
 
 import android.view.MotionEvent;
 import android.view.View;
-
+import androidx.dynamicanimation.animation.DynamicAnimation;
 import androidx.dynamicanimation.animation.SpringAnimation;
 import androidx.dynamicanimation.animation.SpringForce;
 
 public class ButtonAnimationUtil {
 
     public static void applySpringAnimation(View view) {
-        SpringAnimation scaleXAnim = new SpringAnimation(view, SpringAnimation.SCALE_X, 1f);
-        SpringAnimation scaleYAnim = new SpringAnimation(view, SpringAnimation.SCALE_Y, 1f);
+        SpringAnimation scaleXAnim = new SpringAnimation(view, DynamicAnimation.SCALE_X, 1f);
+        SpringAnimation scaleYAnim = new SpringAnimation(view, DynamicAnimation.SCALE_Y, 1f);
 
         SpringForce spring = new SpringForce(1f);
         spring.setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY);

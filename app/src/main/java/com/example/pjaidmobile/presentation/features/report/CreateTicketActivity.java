@@ -4,16 +4,15 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.example.pjaidmobile.data.model.Device;
 import com.example.pjaidmobile.databinding.ActivityCreateTicketBinding;
+import com.example.pjaidmobile.util.ButtonAnimationUtil;
 import com.example.pjaidmobile.util.DeviceIntentHelper;
 import com.example.pjaidmobile.util.MapHandler;
 import com.google.android.gms.maps.MapView;
@@ -64,6 +63,10 @@ public class CreateTicketActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.buttonBack.setOnClickListener(v -> finish());
+
+        // button spring animation
+        ButtonAnimationUtil.applySpringAnimation(binding.buttonBack);
+        ButtonAnimationUtil.applySpringAnimation(binding.buttonSubmitTicket);
 
         viewModel = new ViewModelProvider(this).get(CreateTicketViewModel.class);
         MapView mapView = binding.mapView;

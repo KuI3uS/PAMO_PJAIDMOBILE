@@ -4,17 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
-
 import com.example.pjaidmobile.data.remote.api.AuthApi;
 import com.example.pjaidmobile.data.remote.api.DeviceApi;
 import com.example.pjaidmobile.data.remote.api.ReportApi;
 import com.example.pjaidmobile.data.remote.api.TicketApi;
 import com.example.pjaidmobile.data.remote.api.auth.TokenAuthenticator;
 import com.example.pjaidmobile.presentation.features.auth.LoginActivity;
-
 import javax.inject.Named;
 import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;

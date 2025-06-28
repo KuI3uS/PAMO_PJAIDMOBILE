@@ -15,7 +15,6 @@
     <string name="device_info">Informacje o urządzeniu</string>
     <string name="describe_error">Opisz awarię</string>
     <string name="report">Zgłoś</string>
-
     <string name="welcome_to_pjaid">Welcome to PJAID</string>
     <string name="username_or_email">Username or email</string>
     <string name="password">Password</string>
@@ -46,4 +45,11 @@
         <item>W TRAKCIE</item>
         <item>ZAKOŃCZONE</item>
     </string-array>
+    <string name="save">Zapisz i zakończ</string>
+    <string name="logo_description.">Logo aplikacji</string>
+    <string name="edit">Edytuj</string>
+    <string name="description">Opis zgłoszenia:</string>
+    <string name="assigned">Przypisany do:</string>
+    <string name="created">Utworzono:</string>
+
 </resources>

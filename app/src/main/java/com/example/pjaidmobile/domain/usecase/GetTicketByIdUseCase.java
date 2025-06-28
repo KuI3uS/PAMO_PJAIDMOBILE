@@ -1,4 +1,5 @@
 package com.example.pjaidmobile.domain.usecase;
+
 import com.example.pjaidmobile.data.model.TicketResponse;
 import com.example.pjaidmobile.domain.repository.TicketRepository;
 

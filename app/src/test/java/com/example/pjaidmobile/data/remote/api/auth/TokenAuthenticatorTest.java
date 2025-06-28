@@ -4,20 +4,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.*;
-
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import com.example.pjaidmobile.data.model.AuthResponse;
 import com.example.pjaidmobile.data.remote.api.AuthApi;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import java.io.IOException;
-
 import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Call;

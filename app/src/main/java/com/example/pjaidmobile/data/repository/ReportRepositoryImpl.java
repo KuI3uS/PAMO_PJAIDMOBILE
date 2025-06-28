@@ -4,12 +4,9 @@ import com.example.pjaidmobile.data.model.IssueReport;
 import com.example.pjaidmobile.data.model.ReportItem;
 import com.example.pjaidmobile.data.remote.api.ReportApi;
 import com.example.pjaidmobile.domain.repository.ReportRepository;
-
 import java.util.List;
 import java.util.NoSuchElementException;
-
 import javax.inject.Inject;
-
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Single;
 
