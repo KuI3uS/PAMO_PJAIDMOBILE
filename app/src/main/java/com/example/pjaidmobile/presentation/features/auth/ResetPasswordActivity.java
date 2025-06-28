@@ -2,9 +2,7 @@ package com.example.pjaidmobile.presentation.features.auth;
 
 import android.os.Bundle;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.pjaidmobile.R;
 import com.example.pjaidmobile.util.ButtonAnimationUtil;
 

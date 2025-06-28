@@ -2,16 +2,12 @@ package com.example.pjaidmobile.data.remote.api.auth;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import androidx.annotation.Nullable;
-
 import com.example.pjaidmobile.data.model.AuthResponse;
 import com.example.pjaidmobile.data.remote.api.AuthApi;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
 import okhttp3.Authenticator;
 import okhttp3.Request;
 import okhttp3.Response;

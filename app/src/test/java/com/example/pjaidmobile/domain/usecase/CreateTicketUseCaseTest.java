@@ -3,17 +3,14 @@ package com.example.pjaidmobile.domain.usecase;
 import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import com.example.pjaidmobile.data.model.TicketRequest;
 import com.example.pjaidmobile.data.model.TicketResponse;
 import com.example.pjaidmobile.domain.repository.TicketRepository;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 

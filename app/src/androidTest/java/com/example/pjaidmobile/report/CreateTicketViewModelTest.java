@@ -10,21 +10,17 @@ import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
-
 import com.example.pjaidmobile.data.model.Location;
 import com.example.pjaidmobile.data.model.TicketRequest;
 import com.example.pjaidmobile.data.model.TicketResponse;
 import com.example.pjaidmobile.domain.usecase.CreateTicketUseCase;
 import com.example.pjaidmobile.presentation.features.report.CreateTicketViewModel;
 import com.example.pjaidmobile.util.LocationProvider;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
-
 import retrofit2.Callback;
 
 public class CreateTicketViewModelTest {

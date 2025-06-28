@@ -2,7 +2,6 @@ package com.example.pjaidmobile.presentation.features.report;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.SpannableString;
@@ -15,17 +14,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.pjaidmobile.R;
 import com.example.pjaidmobile.data.model.ReportItem;
 
+/**
+ * Adapter for displaying a list of requests (reports) in RecyclerView.
+ * Supports sorting, comparing and clicking on a single item.
+ */
 
 public class ReportListAdapter extends ListAdapter<ReportItem, ReportListAdapter.ReportViewHolder> {
 
@@ -40,6 +39,10 @@ public class ReportListAdapter extends ListAdapter<ReportItem, ReportListAdapter
         return new ReportViewHolder(view);
 
     }
+
+    /**
+     * Fills the ViewHolder with data from the ReportItem object.
+     */
 
     @Override
     public void onBindViewHolder(@NonNull ReportViewHolder holder, int position) {
@@ -110,6 +113,10 @@ public class ReportListAdapter extends ListAdapter<ReportItem, ReportListAdapter
             container = itemView.findViewById(R.id.item_container);
         }
     }
+
+    /**
+     * ViewHolder holding views of a single list item.
+     */
 
     private static final DiffUtil.ItemCallback<ReportItem> DIFF_CALLBACK = new DiffUtil.ItemCallback<ReportItem>() {
         @Override

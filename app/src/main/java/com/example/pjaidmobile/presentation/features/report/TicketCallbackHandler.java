@@ -3,9 +3,7 @@ package com.example.pjaidmobile.presentation.features.report;
 import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
-
 import com.example.pjaidmobile.data.model.TicketResponse;
-
 import retrofit2.Response;
 
 public class TicketCallbackHandler {

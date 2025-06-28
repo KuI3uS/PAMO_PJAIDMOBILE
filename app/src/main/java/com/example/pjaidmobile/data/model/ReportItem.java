@@ -2,6 +2,11 @@ package com.example.pjaidmobile.data.model;
 
 import java.util.Objects;
 
+/**
+ * A class representing a single report/notification element in an application.
+ * Can be used to display reports in lists.
+ */
+
 public class ReportItem {
     private String id;
     private String description;

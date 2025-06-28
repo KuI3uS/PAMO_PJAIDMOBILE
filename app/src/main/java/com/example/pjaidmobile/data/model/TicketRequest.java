@@ -1,5 +1,10 @@
 package com.example.pjaidmobile.data.model;
 
+/**
+ * A class representing a request to create a new ticket (ticket).
+ * Passed, for example, as the body of a POST request to the API.
+ */
+
 public class TicketRequest {
     private String title;
     private String description;

@@ -121,6 +121,7 @@
                     android:id="@+id/buttonSubmitTicket"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/material_dynamic_primary20"
                     android:text="@string/report_send" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

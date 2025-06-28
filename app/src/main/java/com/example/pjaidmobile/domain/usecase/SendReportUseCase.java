@@ -1,12 +1,9 @@
 package com.example.pjaidmobile.domain.usecase;
 
 import android.util.Log;
-
 import com.example.pjaidmobile.data.model.IssueReport;
 import com.example.pjaidmobile.domain.repository.ReportRepository;
-
 import javax.inject.Inject;
-
 import io.reactivex.rxjava3.core.Completable;
 
 public class SendReportUseCase {

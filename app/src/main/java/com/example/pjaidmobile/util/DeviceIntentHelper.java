@@ -2,7 +2,6 @@ package com.example.pjaidmobile.util;
 
 import android.content.Context;
 import android.content.Intent;
-
 import com.example.pjaidmobile.data.model.Device;
 
 public class DeviceIntentHelper {

@@ -2,9 +2,7 @@ package com.example.pjaidmobile.domain.usecase;
 
 import com.example.pjaidmobile.data.model.AuthResponse;
 import com.example.pjaidmobile.domain.repository.AuthRepository;
-
 import javax.inject.Inject;
-
 import retrofit2.Call;
 
 public class LoginUseCase {
