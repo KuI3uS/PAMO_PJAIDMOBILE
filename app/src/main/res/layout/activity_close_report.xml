@@ -26,7 +26,7 @@
                 android:id="@+id/inputSummary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Opis działań"
+                android:hint="@string/description_instruction"
                 android:minHeight="80dp"
                 android:gravity="top|start"
                 android:inputType="textMultiLine"
@@ -38,7 +38,7 @@
                 android:id="@+id/inputTimeSpent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Czas trwania (minuty)"
+                android:hint="@string/duration_time"
                 android:inputType="number"
                 android:backgroundTint="@color/black"
                 android:padding="8dp"
@@ -49,7 +49,7 @@
                 android:id="@+id/inputNotes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Uwagi końcowe"
+                android:hint="@string/final_comments"
                 android:inputType="textMultiLine"
                 android:minHeight="60dp"
                 android:backgroundTint="@color/black"
@@ -61,21 +61,21 @@
                 android:id="@+id/btnSaveReport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Zapisz raport"
+                android:text="@string/save_report"
                 android:layout_marginTop="24dp" />
 
             <Button
                 android:id="@+id/btnExportCsv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Eksportuj jako CSV"
+                android:text="@string/export_csv"
                 android:layout_marginTop="12dp" />
 
             <Button
                 android:id="@+id/btnExportXls"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Eksportuj jako XLS"
+                android:text="@string/export_xls"
                 android:layout_marginTop="12dp" />
         </LinearLayout>
     </ScrollView>

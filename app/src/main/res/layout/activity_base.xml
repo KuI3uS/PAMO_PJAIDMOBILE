@@ -25,7 +25,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:src="@drawable/logo"
-        android:contentDescription="App logo"
+        android:contentDescription="@string/app_logo"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"

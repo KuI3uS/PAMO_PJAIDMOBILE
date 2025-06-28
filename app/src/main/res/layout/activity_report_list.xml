@@ -36,7 +36,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:text="Lista zgłoszeń"
+        android:text="@string/report_list"
         android:textColor="@android:color/white"
         android:textSize="28sp"
         android:textStyle="bold"

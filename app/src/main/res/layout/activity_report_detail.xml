@@ -9,7 +9,7 @@
         android:id="@+id/report_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Szczegóły zgłoszenia"
+        android:text="@string/report_details"
         android:textSize="20sp"/>
 </LinearLayout>
 

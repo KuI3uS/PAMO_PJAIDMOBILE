@@ -9,7 +9,7 @@
         android:id="@+id/welcome_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to PJAID"
+        android:text="@string/welcome_to_pjaid"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintTop_toTopOf="parent"

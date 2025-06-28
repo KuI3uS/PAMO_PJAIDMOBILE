@@ -61,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#4D5A88D1"
-        android:text="Skanuj kod QR" />
+        android:text="@string/scan_prompt" />
 
     <Button
         android:id="@+id/buttonReportIssue"
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="#4D5A88D1"
-        android:text="Zgłoś awarię" />
+        android:text="@string/report_problem" />
 
     <Button
         android:id="@+id/buttonReportList"
@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="#4D5A88D1"
-        android:text="Lista zgłoszeń" />
+        android:text="@string/report_list" />
 
 
         <Button
@@ -87,7 +87,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="24dp"
             android:backgroundTint="#B81E30"
-            android:text="Wyloguj się" />
+            android:text="@string/logout" />
 
     </LinearLayout>
 
