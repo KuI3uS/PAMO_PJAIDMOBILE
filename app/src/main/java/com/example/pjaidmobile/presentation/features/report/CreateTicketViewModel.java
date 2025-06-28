@@ -3,15 +3,12 @@ package com.example.pjaidmobile.presentation.features.report;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
 import com.example.pjaidmobile.data.model.Location;
 import com.example.pjaidmobile.data.model.TicketRequest;
 import com.example.pjaidmobile.data.model.TicketResponse;
 import com.example.pjaidmobile.domain.usecase.CreateTicketUseCase;
 import com.example.pjaidmobile.util.LocationProvider;
-
 import javax.inject.Inject;
-
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import retrofit2.Call;
 import retrofit2.Callback;

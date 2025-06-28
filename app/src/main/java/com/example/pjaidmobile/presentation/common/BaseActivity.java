@@ -1,11 +1,14 @@
 package com.example.pjaidmobile.presentation.common;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
 import com.example.pjaidmobile.R;
+
+/**
+ * BaseActivity - the base activity containing the fragment container.
+ * Defaults to loading LoginFragment on startup.
+ */
 
 public class BaseActivity extends AppCompatActivity {
 

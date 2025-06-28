@@ -1,5 +1,10 @@
 package com.example.pjaidmobile.data.model;
 
+/**
+ * A data model used for user authentication (login).
+ * An object of this class is usually sent as the body of an HTTP request (e.g. POST) to the API server.
+ */
+
 public class AuthRequest {
     private String username;
     private String password;

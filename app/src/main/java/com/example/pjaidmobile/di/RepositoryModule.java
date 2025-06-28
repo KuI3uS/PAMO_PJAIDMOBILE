@@ -10,9 +10,7 @@ import com.example.pjaidmobile.domain.repository.ReportRepository;
 import com.example.pjaidmobile.domain.repository.TicketRepository;
 import com.example.pjaidmobile.util.LocationProvider;
 import com.example.pjaidmobile.util.LocationProviderImpl;
-
 import javax.inject.Singleton;
-
 import dagger.Binds;
 import dagger.Module;
 import dagger.hilt.InstallIn;

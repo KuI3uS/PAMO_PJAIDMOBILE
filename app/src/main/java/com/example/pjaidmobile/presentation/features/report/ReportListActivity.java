@@ -3,14 +3,11 @@ package com.example.pjaidmobile.presentation.features.report;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.pjaidmobile.R;
-
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint

@@ -5,9 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.pjaidmobile.R;
 import com.example.pjaidmobile.presentation.features.auth.LoginActivity;
 import com.example.pjaidmobile.presentation.features.report.CreateTicketActivity;
