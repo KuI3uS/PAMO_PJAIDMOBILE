@@ -66,6 +66,8 @@
     <string name="arrow">➔</string>
     <string name="status_pending">Status: Oczekuje</string>
     <string name="technician_lack">Technik: Brak</string>
+    <string name="logged_user">Zalogowany użytkownik: %1$s</string>
+    <string name="unknown_user">Nieznany użytkownik</string>
     <string-array name="status_options">
         <item>NOWE</item>
         <item>W TRAKCIE</item>
