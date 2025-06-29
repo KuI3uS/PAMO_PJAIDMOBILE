@@ -12,7 +12,7 @@ MVP (Minimum Viable Product)
 | Person              | Tasks                                                            |
 |---------------------|------------------------------------------------------------------|
 | Jakub Marcinkowski  | [ANDROID] Failure report form, User's list of reports            |
-| Dagmara Gibas       | [ANDROID] Report details                                         |
+| Dagmara Gibas       | [ANDROID] Report details, Login panel, design                    |
 | Karol Spica         | [ANDROID] Adding QR code scanning in the mobile app              |
 ------------------------------------------------------------------------------------------
 ## Short Description of the Application
