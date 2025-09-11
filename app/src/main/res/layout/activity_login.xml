@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".presentation.features.auth.LoginActivity">
 
-    <!-- tło -->
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="match_parent"
@@ -46,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Ppanel logowania -->
+    <!-- Panel logowania -->
     <androidx.cardview.widget.CardView
         android:id="@+id/login_panel"
         android:layout_width="0dp"

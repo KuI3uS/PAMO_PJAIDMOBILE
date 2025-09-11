@@ -146,7 +146,6 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putBoolean("isLoggedIn", true);
                     editor.putString("accessToken", accessToken);
                     editor.putString("refreshToken", refreshToken);
-
                     editor.putString("loggedInUsername", username);
 
                     if (rememberMe) {

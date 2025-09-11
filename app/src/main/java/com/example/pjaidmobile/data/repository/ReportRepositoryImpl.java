@@ -1,7 +1,9 @@
 package com.example.pjaidmobile.data.repository;
 
 import com.example.pjaidmobile.data.model.IssueReport;
+import com.example.pjaidmobile.data.model.PageResponse;
 import com.example.pjaidmobile.data.model.ReportItem;
+import com.example.pjaidmobile.data.model.TicketResponse;
 import com.example.pjaidmobile.data.remote.api.ReportApi;
 import com.example.pjaidmobile.domain.repository.ReportRepository;
 import java.util.List;
@@ -40,4 +42,13 @@ public class ReportRepositoryImpl implements ReportRepository {
                     throw new NoSuchElementException("Brak zgłoszenia o id: " + id);
                 });
     }
+    @Override
+    public Single<PageResponse<TicketResponse>> getMyTicketsPaged(String username, int page, int size) {
+        return reportApi.getMyTicketsPaged(username, page, size);
+    }
+    @Override
+    public Single<PageResponse<TicketResponse>> getAllTicketsPaged(int page, int size) {
+        return reportApi.getAllTicketsPaged(page, size);
+    }
+
 }

@@ -2,6 +2,7 @@ package com.example.pjaidmobile.data.model;
 
 import java.util.Objects;
 
+
 /**
  * A class representing a single report/notification element in an application.
  * Can be used to display reports in lists.
@@ -14,6 +15,7 @@ public class ReportItem {
     private String title;
     private String technicianName;
     private String status;
+    private String username;
     public String getTitle() { return title; }
     public String getTechnicianName() { return technicianName; }
     public String getStatus() { return status; }
@@ -25,7 +27,10 @@ public class ReportItem {
         this.date = date;
         this.technicianName = technicianName;
         this.status = status;
+        this.username = username;
     }
+        public String getUsername() { return username; }
+
 
     public String getId() {
         return id;
@@ -51,4 +56,5 @@ public class ReportItem {
     public int hashCode() {
         return Objects.hash(id, description, date);
     }
+
 }

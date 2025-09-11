@@ -45,11 +45,35 @@
         <item>W TRAKCIE</item>
         <item>ZAKOŃCZONE</item>
     </string-array>
-    <string name="save">Zapisz i zakończ</string>
+    <string name="save">Zapisz </string>
     <string name="logo_description.">Logo aplikacji</string>
     <string name="edit">Edytuj</string>
     <string name="description">Opis zgłoszenia:</string>
     <string name="assigned">Przypisany do:</string>
     <string name="created">Utworzono:</string>
+    <string-array name="edit_status_options">
+        <item>NOWE</item>
+        <item>W TRAKCIE</item>
+        <item>PRZESTÓJ</item>
+        <item>ZAMKNIĘTE</item>
+        <item>OCZEKUJĄCE</item>
+    </string-array>
+    <string-array name="technicians_list">
+        <item>-- wybierz technika --</item>
+        <item>Technik A1</item>
+        <item>Technik A2</item>
+        <item>Technik A3</item>
+        <item>Technik B1</item>
+        <item>Technik B2</item>
+        <item>Technik B3</item>
+        <item>Technik C1</item>
+        <item>Technik C2</item>
+        <item>Technik C3</item>
+        <item>Technik D1</item>
+        <item>Technik D2</item>
+        <item>Technik D3</item>
+    </string-array>
+
+
 
 </resources>

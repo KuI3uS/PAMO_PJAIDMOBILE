@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView loggedUserText = findViewById(R.id.tv_logged_user);
         String loggedUser = prefs.getString("username", "Nieznany użytkownik");
-        loggedUserText.setText("Zalogowany użytkownik: " + loggedUser);  // Wyświetlenie loginu
+        loggedUserText.setText("Zalogowany użytkownik: " + loggedUser);
 
 
         ButtonAnimationUtil.applySpringAnimation(scanQR);

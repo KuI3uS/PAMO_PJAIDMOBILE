@@ -3,6 +3,7 @@ package com.example.pjaidmobile.data.remote.api;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
 public class ApiClient {
 
     private static Retrofit retrofit = null;
@@ -15,6 +16,9 @@ public class ApiClient {
                     .build();
         }
         return retrofit;
+    }
+    public static TicketApi getTicketApi() {
+        return getClient().create(TicketApi.class);
     }
 }
 

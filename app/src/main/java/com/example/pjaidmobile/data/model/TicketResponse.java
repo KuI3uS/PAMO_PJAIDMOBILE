@@ -32,6 +32,9 @@ public class TicketResponse {
     private User user;
 
     public TicketResponse() {}
+    @SerializedName("assignedToMe")
+    private boolean assignedToMe;
+
 
     public Long getId() { return id; }
 
@@ -50,6 +53,11 @@ public class TicketResponse {
     public Device getDevice() { return device; }
 
     public User getUser() { return user; }
+
+    public boolean getAssignedToMe() {
+        return assignedToMe;
+    }
+
 
     public static class Incident {
         @SerializedName("id")
